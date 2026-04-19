@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Café com Campinas — Identidade Visual</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --preto: #111111;
+    --dourado: #E8B84B;
+    --creme: #F5F2EE;
+    --cinza: #888888;
+    --cinza-claro: #CCCCCC;
+    --branco: #FFFFFF;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--creme);
+    color: var(--preto);
+    min-height: 100vh;
+  }
+
+  /* CAPA */
+  .capa {
+    background: var(--preto);
+    padding: 5rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .capa::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: var(--dourado);
+    opacity: 0.06;
+  }
+
+  .capa-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cinza);
+    margin-bottom: 2rem;
+  }
+
+  .logo-hero {
+    margin-bottom: 1.5rem;
+  }
+
+  .logo-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dourado);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .logo-main {
+    font-size: 64px;
+    font-weight: 900;
+    color: var(--branco);
+    letter-spacing: -3px;
+    line-height: 1;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  .logo-main .with {
+    font-weight: 400;
+    color: var(--cinza);
+    font-size: 44px;
+    margin: 0 10px;
+    letter-spacing: 0;
+  }
+
+  .logo-divider {
+    width: 40px;
+    height: 2px;
+    background: var(--dourado);
+    margin: 12px 0;
+  }
+
+  .logo-sub {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #444;
+    font-weight: 500;
+  }
+
+  .capa-meta {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 0.5px solid #222;
+    display: flex;
+    gap: 3rem;
+  }
+
+  .meta-item { }
+  .meta-key { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #444; margin-bottom: 4px; }
+  .meta-val { font-size: 13px; color: var(--cinza-claro); font-weight: 500; }
+
+  /* CONTAINER GERAL */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  /* SEÇÕES */
+  .section { margin-bottom: 4rem; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 0.5px solid #DDD;
+  }
+
+  .section-num {
+    font-size: 11px;
+    font-weight: 900;
+    color: var(--dourado);
+    letter-spacing: 0.05em;
+  }
+
+  .section-title {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #444;
+  }
+
+  /* LOGO VARIAÇÕES */
+  .logo-variants { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .logo-v {
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+  }
+
+  .logo-v.dark { background: var(--preto); }
+  .logo-v.light { background: var(--creme); border: 0.5px solid #DDD; }
+
+  .logo-inline { display: flex; align-items: baseline; gap: 0; font-family: 'Inter', sans-serif; font-weight: 900; letter-spacing: -0.5px; }
+  .li-cafe { font-size: 22px; position: relative; display: inline-block; }
+  .li-cafe::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 100%; height: 3px; background: var(--dourado); border-radius: 2px; }
+  .li-com { font-weight: 600; font-size: 15px; color: var(--dourado) !important; margin: 0 6px; }
+  .li-campinas { font-size: 22px; }
+
+  .logo-v.dark .li-cafe, .logo-v.dark .li-campinas { color: var(--branco); }
+  .logo-v.light .li-cafe, .logo-v.light .li-campinas { color: var(--preto); }
+
+  /* ÍCONE */
+  .icons-row { display: flex; gap: 20px; align-items: flex-end; flex-wrap: wrap; }
+
+  .icon-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .icon-size-label { font-size: 10px; color: var(--cinza); letter-spacing: 0.05em; }
+
+  .icon {
+    background: var(--dourado);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon-96 { width: 96px; height: 96px; border-radius: 22px; padding: 14px 12px 10px; gap: 3px; }
+  .icon-64 { width: 64px; height: 64px; border-radius: 14px; padding: 10px 8px 7px; gap: 2px; }
+  .icon-40 { width: 40px; height: 40px; border-radius: 9px; padding: 6px 5px 5px; gap: 1px; }
+  .icon-32 { width: 32px; height: 32px; border-radius: 7px; padding: 5px 4px 4px; gap: 1px; }
+
+  .cup { background: var(--preto); border-radius: 0 0 30% 30%; position: relative; }
+  .cup::after { content: ''; position: absolute; border-style: solid; border-color: var(--preto); border-left: none; border-radius: 0 50% 50% 0; }
+
+  .icon-96 .cup { width: 40px; height: 28px; }
+  .icon-96 .cup::after { right: -12px; top: 6px; width: 12px; height: 16px; border-width: 3px; }
+  .icon-64 .cup { width: 26px; height: 18px; }
+  .icon-64 .cup::after { right: -8px; top: 4px; width: 8px; height: 10px; border-width: 2px; }
+  .icon-40 .cup { width: 16px; height: 11px; }
+  .icon-40 .cup::after { right: -5px; top: 2px; width: 5px; height: 7px; border-width: 1.5px; }
+  .icon-32 .cup { width: 13px; height: 9px; }
+  .icon-32 .cup::after { right: -4px; top: 2px; width: 4px; height: 5px; border-width: 1.5px; }
+
+  .steam { display: flex; justify-content: center; }
+  .steam span { display: block; background: var(--preto); border-radius: 2px; opacity: 0.5; }
+  .steam span:nth-child(2) { margin-top: -30%; }
+
+  .icon-96 .steam { gap: 5px; margin-bottom: 4px; }
+  .icon-96 .steam span { width: 3px; }
+  .icon-96 .steam span:nth-child(1), .icon-96 .steam span:nth-child(3) { height: 10px; }
+  .icon-96 .steam span:nth-child(2) { height: 15px; }
+
+  .icon-64 .steam { gap: 4px; margin-bottom: 3px; }
+  .icon-64 .steam span { width: 2px; }
+  .icon-64 .steam span:nth-child(1), .icon-64 .steam span:nth-child(3) { height: 7px; }
+  .icon-64 .steam span:nth-child(2) { height: 10px; }
+
+  .icon-40 .steam { gap: 3px; margin-bottom: 2px; }
+  .icon-40 .steam span { width: 1.5px; }
+  .icon-40 .steam span:nth-child(1), .icon-40 .steam span:nth-child(3) { height: 5px; }
+  .icon-40 .steam span:nth-child(2) { height: 7px; }
+
+  .icon-32 .steam { gap: 2px; margin-bottom: 1px; }
+  .icon-32 .steam span { width: 1px; }
+  .icon-32 .steam span:nth-child(1), .icon-32 .steam span:nth-child(3) { height: 4px; }
+  .icon-32 .steam span:nth-child(2) { height: 6px; }
+
+  .saucer { background: var(--preto); border-radius: 2px; }
+  .icon-96 .saucer { width: 50px; height: 4px; margin-top: 3px; }
+  .icon-64 .saucer { width: 33px; height: 3px; margin-top: 2px; }
+  .icon-40 .saucer { width: 20px; height: 2px; margin-top: 1px; }
+  .icon-32 .saucer { width: 16px; height: 2px; margin-top: 1px; }
+
+  .cps { font-weight: 900; color: var(--preto); letter-spacing: -0.02em; line-height: 1; font-family: 'Inter', sans-serif; }
+  .icon-96 .cps { font-size: 13px; margin-top: 5px; }
+  .icon-64 .cps { font-size: 9px; margin-top: 4px; }
+  .icon-40 .cps { font-size: 6px; margin-top: 2px; }
+  .icon-32 .cps { font-size: 5px; margin-top: 1px; }
+
+  /* PALETA */
+  .palette { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+
+  .swatch { border-radius: 10px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .swatch-color { height: 80px; }
+  .swatch-info { padding: 10px 12px; background: var(--branco); border: 0.5px solid #E8E8E8; border-top: none; border-radius: 0 0 10px 10px; }
+  .swatch-name { font-size: 12px; font-weight: 600; display: block; margin-bottom: 2px; }
+  .swatch-hex { font-size: 11px; color: var(--cinza); font-family: monospace; display: block; }
+  .swatch-use { font-size: 10px; color: #AAA; margin-top: 4px; display: block; }
+
+  /* TIPOGRAFIA */
+  .type-samples { display: flex; flex-direction: column; gap: 12px; }
+
+  .type-card {
+    background: var(--branco);
+    border: 0.5px solid #E8E8E8;
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .type-meta { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cinza); margin-bottom: 6px; }
+  .t-headline { font-size: 36px; font-weight: 900; letter-spacing: -1.5px; line-height: 1.1; }
+  .t-subhead { font-size: 18px; font-weight: 600; letter-spacing: -0.3px; }
+  .t-body { font-size: 15px; font-weight: 400; color: #555; line-height: 1.7; }
+  .t-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dourado); }
+  .t-caption { font-size: 12px; color: var(--cinza); }
+
+  /* NEWSLETTER MOCK */
+  .nl-mock {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 0.5px solid #DDD;
+    background: var(--branco);
+    max-width: 540px;
+  }
+
+  .nl-header {
+    background: var(--preto);
+    padding: 2rem 2rem 1.5rem;
+    text-align: center;
+  }
+
+  .nl-logo {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--branco);
+    letter-spacing: -0.5px;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0;
+  }
+
+  .nl-logo .nl-cafe { position: relative; display: inline-block; }
+  .nl-logo .nl-cafe::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 100%; height: 3px; background: var(--dourado); border-radius: 2px; }
+  .nl-logo .nl-com { font-weight: 600; color: var(--dourado); font-size: 18px; margin: 0 6px; }
+
+  .nl-date {
+    font-size: 10px;
+    color: #444;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .nl-strip {
+    height: 3px;
+    background: var(--dourado);
+  }
+
+  .nl-body { padding: 1.5rem 2rem; }
+
+  .nl-tag { font-size: 9px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dourado); margin-bottom: 5px; display: block; }
+  .nl-headline { font-size: 18px; font-weight: 900; letter-spacing: -0.3px; line-height: 1.3; margin-bottom: 8px; }
+  .nl-excerpt { font-size: 13px; color: #666; line-height: 1.65; margin-bottom: 1rem; }
+  .nl-divider { height: 0.5px; background: #EEE; margin: 1rem 0; }
+  .nl-footer { font-size: 10px; color: #BBB; text-align: center; padding: 1rem 2rem; border-top: 0.5px solid #EEE; letter-spacing: 0.05em; }
+
+  /* INSTAGRAM MOCK */
+  .ig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .ig-post {
+    background: var(--preto);
+    aspect-ratio: 1;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ig-post::before {
+    content: '';
+    position: absolute;
+    bottom: -30px; right: -30px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: var(--dourado);
+    opacity: 0.07;
+  }
+
+  .ig-tag { position: absolute; top: 1rem; left: 1rem; font-size: 8px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dourado); }
+  .ig-headline { font-size: 16px; font-weight: 900; color: var(--branco); letter-spacing: -0.3px; line-height: 1.25; text-align: center; margin-bottom: 10px; }
+  .ig-bar { width: 20px; height: 2px; background: var(--dourado); margin-bottom: 10px; }
+  .ig-sub { font-size: 9px; color: #666; letter-spacing: 0.1em; text-transform: uppercase; text-align: center; }
+  .ig-watermark { position: absolute; bottom: 0.75rem; right: 0.75rem; font-size: 9px; font-weight: 900; color: var(--branco); opacity: 0.4; letter-spacing: -0.3px; }
+
+  /* REGRAS DE USO */
+  .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .rule-card { border-radius: 10px; padding: 1.25rem; border: 0.5px solid #E8E8E8; background: var(--branco); }
+  .rule-icon { font-size: 18px; margin-bottom: 8px; }
+  .rule-title { font-size: 12px; font-weight: 700; margin-bottom: 6px; }
+  .rule-desc { font-size: 11px; color: var(--cinza); line-height: 1.6; }
+  .rule-card.do { border-left: 3px solid #2E8B57; }
+  .rule-card.dont { border-left: 3px solid #C0392B; }
+
+  /* RODAPÉ */
+  .rodape {
+    background: var(--preto);
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .rodape-logo { font-size: 14px; font-weight: 900; color: var(--branco); letter-spacing: -0.3px; }
+  .rodape-logo span { color: #444; font-weight: 400; margin: 0 3px; }
+  .rodape-meta { font-size: 10px; color: #444; letter-spacing: 0.05em; }
+
+  @media (max-width: 600px) {
+    .capa { padding: 3rem 1.5rem 2.5rem; }
+    .logo-main { font-size: 40px; letter-spacing: -2px; }
+    .logo-main .with { font-size: 28px; }
+    .container { padding: 2.5rem 1.25rem; }
+    .logo-variants, .palette, .ig-grid, .rules-grid { grid-template-columns: 1fr; }
+    .icons-row { justify-content: center; }
+    .rodape { padding: 1.5rem; flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CAPA -->
+<div class="capa">
+  <div class="capa-label">Guia de Identidade Visual · v1.0</div>
+  <div class="logo-hero">
+    <div class="logo-eyebrow">notícias de campinas e região</div>
+    <div class="logo-main">
+      café<span class="with">com</span>campinas
+    </div>
+    <div class="logo-divider"></div>
+    <div class="logo-sub">@cafecomcampinas</div>
+  </div>
+  <div class="capa-meta">
+    <div class="meta-item">
+      <div class="meta-key">Versão</div>
+      <div class="meta-val">1.0 — Abril 2025</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-key">Instagram</div>
+      <div class="meta-val">@cafecomcampinas</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-key">Formato</div>
+      <div class="meta-val">Newsletter + Instagram</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 01 LOGO -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <span class="section-title">Logo — Variações</span>
+    </div>
+    <div class="logo-variants">
+      <div class="logo-v dark">
+        <div class="logo-inline">
+          <span class="li-cafe">café</span>
+          <span class="li-com">com</span>
+          <span class="li-campinas">campinas</span>
+        </div>
+      </div>
+      <div class="logo-v light">
+        <div class="logo-inline">
+          <span class="li-cafe">café</span>
+          <span class="li-com">com</span>
+          <span class="li-campinas">campinas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 ÍCONE -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <span class="section-title">Ícone / Favicon</span>
+    </div>
+    <div class="icons-row">
+      <div class="icon-wrap">
+        <div class="icon icon-96">
+          <div class="steam"><span></span><span></span><span></span></div>
+          <div class="cup"></div>
+          <div class="saucer"></div>
+          <div class="cps">CPS</div>
+        </div>
+        <span class="icon-size-label">96px</span>
+      </div>
+      <div class="icon-wrap">
+        <div class="icon icon-64">
+          <div class="steam"><span></span><span></span><span></span></div>
+          <div class="cup"></div>
+          <div class="saucer"></div>
+          <div class="cps">CPS</div>
+        </div>
+        <span class="icon-size-label">64px</span>
+      </div>
+      <div class="icon-wrap">
+        <div class="icon icon-40">
+          <div class="steam"><span></span><span></span><span></span></div>
+          <div class="cup"></div>
+          <div class="saucer"></div>
+          <div class="cps">CPS</div>
+        </div>
+        <span class="icon-size-label">40px</span>
+      </div>
+      <div class="icon-wrap">
+        <div class="icon icon-32">
+          <div class="steam"><span></span><span></span><span></span></div>
+          <div class="cup"></div>
+          <div class="saucer"></div>
+          <div class="cps">CPS</div>
+        </div>
+        <span class="icon-size-label">32px — favicon</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 PALETA -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <span class="section-title">Paleta de Cores</span>
+    </div>
+    <div class="palette">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#111111;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Preto editorial</span>
+          <span class="swatch-hex">#111111</span>
+          <span class="swatch-use">Fundo principal, textos</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#E8B84B;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Café dourado</span>
+          <span class="swatch-hex">#E8B84B</span>
+          <span class="swatch-use">Acento, ícone, destaques</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F5F2EE; border:0.5px solid #E8E4E0;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Creme</span>
+          <span class="swatch-hex">#F5F2EE</span>
+          <span class="swatch-use">Fundo claro, newsletter</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#888888;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Cinza</span>
+          <span class="swatch-hex">#888888</span>
+          <span class="swatch-use">Textos secundários</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 TIPOGRAFIA -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <span class="section-title">Tipografia — Inter</span>
+    </div>
+    <div class="type-samples">
+      <div class="type-card">
+        <div class="type-meta">Headline · Inter Black 900 · -1.5px tracking</div>
+        <div class="t-headline">Campinas bate recorde histórico</div>
+      </div>
+      <div class="type-card">
+        <div class="type-meta">Subtítulo · Inter SemiBold 600</div>
+        <div class="t-subhead">O que aconteceu hoje na cidade</div>
+      </div>
+      <div class="type-card">
+        <div class="type-meta">Corpo · Inter Regular 400 · 1.7 line-height</div>
+        <div class="t-body">A newsletter que você lê com o café da manhã, pra chegar no trabalho sabendo tudo o que rola em Campinas e região. Direto, rápido e sem enrolação.</div>
+      </div>
+      <div class="type-card">
+        <div class="type-meta">Tag / Editoria · Inter Bold 700 · 0.15em tracking · uppercase</div>
+        <div class="t-tag">Trânsito &nbsp;·&nbsp; Política &nbsp;·&nbsp; Economia &nbsp;·&nbsp; Cultura</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 NEWSLETTER -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <span class="section-title">Mockup — Newsletter</span>
+    </div>
+    <div class="nl-mock">
+      <div class="nl-header">
+        <div class="nl-logo"><span class="nl-cafe">café</span><span class="nl-com">com</span>campinas</div>
+        <div class="nl-date">Terça-feira · 4 de abril de 2025</div>
+      </div>
+      <div class="nl-strip"></div>
+      <div class="nl-body">
+        <span class="nl-tag">📍 Destaque do dia</span>
+        <div class="nl-headline">Nova linha de BRT vai ligar a Vila Industrial ao centro em 18 minutos</div>
+        <div class="nl-excerpt">A Prefeitura confirmou ontem o projeto que deve mudar a mobilidade da cidade. Obras começam no segundo semestre e prometem reduzir em 40% o tempo de deslocamento nos horários de pico.</div>
+        <div class="nl-divider"></div>
+        <span class="nl-tag">🏙️ Mais notícias</span>
+        <div class="nl-headline" style="font-size:15px; margin-bottom:6px;">Unicamp anuncia novo campus no Parque Tecnológico</div>
+        <div class="nl-excerpt" style="margin-bottom:0;">Investimento de R$ 120 milhões vai gerar 2 mil vagas de emprego até 2027.</div>
+      </div>
+      <div class="nl-footer">café com campinas · você pediu, a gente trouxe · descadastrar</div>
+    </div>
+  </div>
+
+  <!-- 06 INSTAGRAM -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <span class="section-title">Mockup — Instagram</span>
+    </div>
+    <div class="ig-grid">
+      <div>
+        <div class="ig-post">
+          <div class="ig-tag">📍 destaque do dia</div>
+          <div class="ig-headline">BRT vai ligar Vila Industrial ao centro</div>
+          <div class="ig-bar"></div>
+          <div class="ig-sub">em 18 minutos</div>
+          <div class="ig-watermark">café·campinas</div>
+        </div>
+      </div>
+      <div>
+        <div class="ig-post">
+          <div class="ig-tag">🏛️ política</div>
+          <div class="ig-headline">Unicamp anuncia novo campus no Parque Tech</div>
+          <div class="ig-bar"></div>
+          <div class="ig-sub">R$ 120 milhões investidos</div>
+          <div class="ig-watermark">café·campinas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 REGRAS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <span class="section-title">Regras de Uso</span>
+    </div>
+    <div class="rules-grid">
+      <div class="rule-card do">
+        <div class="rule-icon">✓</div>
+        <div class="rule-title">Use o preto como base dominante</div>
+        <div class="rule-desc">O preto é a cor principal. O dourado é o acento — nunca o contrário.</div>
+      </div>
+      <div class="rule-card dont">
+        <div class="rule-icon">✗</div>
+        <div class="rule-title">Não inverta as proporções</div>
+        <div class="rule-desc">Evite fundos totalmente dourados com texto preto como padrão de layout.</div>
+      </div>
+      <div class="rule-card do">
+        <div class="rule-icon">✓</div>
+        <div class="rule-title">Fonte: Inter sempre</div>
+        <div class="rule-desc">Toda a comunicação usa Inter. Headlines em 900, corpo em 400, nunca misture outras famílias.</div>
+      </div>
+      <div class="rule-card dont">
+        <div class="rule-icon">✗</div>
+        <div class="rule-title">Não use o logo em fundos coloridos</div>
+        <div class="rule-desc">O logo funciona apenas em fundo preto (#111) ou creme (#F5F2EE).</div>
+      </div>
+      <div class="rule-card do">
+        <div class="rule-icon">✓</div>
+        <div class="rule-title">Minúsculas sempre no nome</div>
+        <div class="rule-desc">"café com campinas" — sempre em letras minúsculas, sem exceção.</div>
+      </div>
+      <div class="rule-card dont">
+        <div class="rule-icon">✗</div>
+        <div class="rule-title">Não distorça o ícone</div>
+        <div class="rule-desc">O ícone da xícara deve ser sempre proporcional. Nunca esticado ou comprimido.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- RODAPÉ -->
+<div class="rodape">
+  <div class="rodape-logo">café<span>com</span>campinas</div>
+  <div class="rodape-meta">Guia de Identidade Visual v1.0 · Abril 2025 · Uso interno</div>
+</div>
+
+</body>
+</html>

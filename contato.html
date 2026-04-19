@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato — Café com Campinas</title>
+  <meta name="description" content="Entre em contato com a equipe do Café com Campinas." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://cafecomcampinas.com.br/contato.html" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #111111;
+      --gold: #E8B84A;
+      --cream: #F5F2EE;
+      --gray: #888888;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      color: var(--black);
+      background-color: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ─── NAV ─── */
+    .nav {
+      background: #111111;
+      border-bottom: 2px solid rgba(232, 184, 74, 0.35);
+      padding: 18px 0;
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transform: translateZ(0);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo-link {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-logo { height: 28px; max-width: 200px; }
+
+    .nav-cta {
+      padding: 8px 20px;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.03em;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover { background: #d4a53e; }
+
+    /* ─── NAV LINKS ─── */
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      text-decoration: none;
+      color: rgba(255,255,255,0.55);
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    /* ─── HAMBURGER ─── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ─── MOBILE MENU ─── */
+    .nav-mobile-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+      background: var(--black);
+      z-index: 99;
+    }
+
+    .nav-mobile-menu.open {
+      max-height: 320px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .nav-mobile-menu-inner {
+      display: flex;
+      flex-direction: column;
+      padding: 8px 24px 24px;
+    }
+
+    .nav-mobile-menu-inner a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: color 0.2s;
+    }
+
+    .nav-mobile-menu-inner a:last-child { border-bottom: none; }
+    .nav-mobile-menu-inner a:hover { color: var(--white); }
+
+    .nav-mobile-cta {
+      margin-top: 12px;
+      padding: 13px 20px;
+      background: var(--gold);
+      color: var(--black) !important;
+      font-weight: 700;
+      font-size: 0.88rem;
+      border-radius: 6px;
+      text-align: center;
+      border-bottom: none !important;
+    }
+
+    .nav-mobile-cta:hover { background: #d4a53e; }
+
+    /* ─── PAGE HEADER ─── */
+    .page-header {
+      background: var(--black);
+      padding: 80px 0 64px;
+      text-align: center;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .section-tag {
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: inline-block;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-tag::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background: var(--gold);
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    .page-title {
+      font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -1.5px;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .page-subtitle {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.55);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ─── CONTENT ─── */
+    .page-content {
+      padding: 80px 0 100px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    /* ─── FORM ─── */
+    .contact-form-section h2 {
+      font-weight: 900;
+      font-size: 1.5rem;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .contact-form-section p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 32px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: var(--black);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: var(--black);
+      background: var(--white);
+      border: 2px solid rgba(17,17,17,0.15);
+      border-radius: 6px;
+      padding: 12px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--gold);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+      line-height: 1.6;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 14px 24px;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      margin-top: 8px;
+    }
+
+    .form-submit:hover { background: #d4a53e; }
+    .form-submit:active { transform: scale(0.99); }
+
+    /* ─── INFO CARDS ─── */
+    .contact-info h2 {
+      font-weight: 900;
+      font-size: 1.5rem;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .contact-info > p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 32px;
+    }
+
+    .info-card {
+      background: var(--cream);
+      border-radius: 8px;
+      padding: 28px 28px;
+      margin-bottom: 16px;
+      border-left: 3px solid var(--gold);
+    }
+
+    .info-card-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .info-card-value {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--black);
+    }
+
+    .info-card-value a {
+      color: var(--black);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .info-card-value a:hover { color: var(--gold); }
+
+    .info-card-sub {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-top: 4px;
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: #0a0a0a;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 56px 0 36px;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .footer-logo { height: 36px; opacity: 0.85; }
+
+    .footer-nav {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-nav a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .footer-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+
+    .footer-nav a:hover { color: var(--white); }
+    .footer-nav a:hover::after { transform: scaleX(1); }
+
+    .footer-socials { display: flex; gap: 16px; }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .social-link:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(232, 184, 74, 0.06);
+    }
+
+    .footer-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .footer-copy {
+      font-size: 0.82rem;
+      color: var(--gray);
+      text-align: center;
+    }
+
+    .footer-copy a { color: var(--gold); text-decoration: none; }
+
+    /* ─── FAQ ACCORDION ─── */
+    .faq-accordion {
+      margin-top: 24px;
+      border: 1px solid rgba(17,17,17,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .faq-accordion-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid rgba(17,17,17,0.07);
+    }
+
+    .accordion-item:last-child {
+      border-bottom: none;
+    }
+
+    .accordion-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.2s;
+    }
+
+    .accordion-trigger:hover {
+      background: rgba(232, 184, 74, 0.05);
+    }
+
+    .accordion-trigger.open {
+      background: rgba(232, 184, 74, 0.07);
+    }
+
+    .accordion-question {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--black);
+      line-height: 1.4;
+    }
+
+    .accordion-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(232, 184, 74, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.25s, transform 0.3s;
+      color: var(--gold);
+    }
+
+    .accordion-trigger.open .accordion-icon {
+      background: var(--gold);
+      color: var(--black);
+      transform: rotate(180deg);
+    }
+
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+
+    .accordion-body.open {
+      max-height: 160px;
+    }
+
+    .accordion-answer {
+      padding: 0 20px 16px;
+      font-size: 0.85rem;
+      color: #555;
+      line-height: 1.65;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .page-header { padding: 60px 0 48px; }
+      .footer-nav { gap: 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 18px; }
+      .page-content { padding: 56px 0 72px; }
+      .footer-nav { flex-direction: column; align-items: center; gap: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo-link">
+          <img src="Logo claro.png" alt="Café com Campinas" class="nav-logo" />
+        </a>
+        <div class="nav-links">
+          <a href="https://cafecomcampinas.beehiiv.com/" target="_blank" rel="noopener">Edições anteriores</a>
+          <a href="contato.html">Contato</a>
+          <a href="anuncie.html">Anuncie</a>
+        </div>
+        <a href="index.html#cta-final" class="nav-cta">Receber grátis</a>
+        <button class="hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav-mobile-menu">
+      <div class="nav-mobile-menu-inner">
+        <a href="https://cafecomcampinas.beehiiv.com/" target="_blank" rel="noopener">Edições anteriores</a>
+        <a href="contato.html">Contato</a>
+        <a href="anuncie.html">Anuncie</a>
+        <a href="index.html#cta-final" class="nav-mobile-cta">Receber grátis</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── PAGE HEADER ── -->
+  <header class="page-header">
+    <div class="container">
+      <span class="section-tag">Fale com a gente</span>
+      <h1 class="page-title">Contato</h1>
+      <p class="page-subtitle">A gente lê tudo.</p>
+    </div>
+  </header>
+
+  <!-- ── CONTENT ── -->
+  <main class="page-content">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Formulário -->
+        <section class="contact-form-section">
+          <h2>Envie uma mensagem</h2>
+          <form action="https://formspree.io/f/mqewlprp" method="POST">
+            <input type="hidden" name="_subject" value="Site: Formulário Contato" />
+            <input type="hidden" name="_language" value="pt" />
+            <div class="form-group">
+              <label for="name">Nome</label>
+              <input type="text" id="name" name="name" placeholder="Seu nome completo" required />
+            </div>
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="subject">Assunto</label>
+              <select id="subject" name="assunto" required>
+                <option value="">Selecione um assunto</option>
+                <option value="Sugestão de pauta">Sugestão de pauta</option>
+                <option value="Correção ou erro">Correção ou erro</option>
+                <option value="Outro">Outro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Mensagem</label>
+              <textarea id="message" name="mensagem" placeholder="Escreva sua mensagem aqui..." required></textarea>
+            </div>
+            <button type="submit" class="form-submit">Enviar mensagem</button>
+          </form>
+        </section>
+
+        <!-- Informações -->
+        <section class="contact-info">
+          <h2>Outras formas de falar</h2>
+
+          <div class="info-card">
+            <p class="info-card-label">Instagram</p>
+            <p class="info-card-value">
+              <a href="https://www.instagram.com/cafecomcampinas/" target="_blank" rel="noopener noreferrer">@cafecomcampinas</a>
+            </p>
+            <p class="info-card-sub">Manda um direct — respondemos por lá também.</p>
+          </div>
+
+          <span class="faq-accordion-label">Dúvidas frequentes</span>
+          <div class="faq-accordion">
+            <div class="accordion-item">
+              <button class="accordion-trigger" aria-expanded="false">
+                <span class="accordion-question">Como cancelo a inscrição?</span>
+                <span class="accordion-icon">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 4l3 3 3-3"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">Um clique no link de descadastro no rodapé de qualquer edição. Simples assim.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-trigger" aria-expanded="false">
+                <span class="accordion-question">Posso sugerir uma pauta?</span>
+                <span class="accordion-icon">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 4l3 3 3-3"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">Claro! Use o formulário ao lado ou mande um direct no Instagram. A gente lê tudo.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-trigger" aria-expanded="false">
+                <span class="accordion-question">A newsletter é mesmo gratuita?</span>
+                <span class="accordion-icon">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 4l3 3 3-3"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">Sim, sempre. Sem assinatura, sem paywall, sem pegadinha.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-trigger" aria-expanded="false">
+                <span class="accordion-question">Vou receber spam?</span>
+                <span class="accordion-icon">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 4l3 3 3-3"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="accordion-body">
+                <p class="accordion-answer">Nunca. Só a edição diária do Café com Campinas, nada mais.</p>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <img src="Logo claro.png" alt="Café com Campinas" class="footer-logo" />
+        <nav class="footer-nav">
+          <a href="https://cafecomcampinas.beehiiv.com/" target="_blank" rel="noopener">Edições anteriores</a>
+          <a href="contato.html">Contato</a>
+          <a href="anuncie.html">Anuncie</a>
+        </nav>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/cafecomcampinas/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+        </div>
+        <div class="footer-divider"></div>
+        <p class="footer-copy">
+          © 2026 Café com Campinas · Feito com carinho em Campinas, SP<br />
+          <a href="#">Política de privacidade</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Mobile menu ──
+    document.querySelectorAll('.hamburger').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const nav = btn.closest('nav');
+        const menu = nav.querySelector('.nav-mobile-menu');
+        const isOpen = btn.classList.contains('open');
+        btn.classList.toggle('open', !isOpen);
+        btn.setAttribute('aria-expanded', String(!isOpen));
+        menu.classList.toggle('open', !isOpen);
+      });
+    });
+
+    document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const body = trigger.nextElementSibling;
+        const isOpen = trigger.classList.contains('open');
+
+        // Fecha todos
+        document.querySelectorAll('.accordion-trigger').forEach(t => {
+          t.classList.remove('open');
+          t.setAttribute('aria-expanded', 'false');
+          t.nextElementSibling.classList.remove('open');
+        });
+
+        // Abre o clicado (se estava fechado)
+        if (!isOpen) {
+          trigger.classList.add('open');
+          trigger.setAttribute('aria-expanded', 'true');
+          body.classList.add('open');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
