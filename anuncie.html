@@ -806,7 +806,7 @@
           <!-- Celular -->
           <div class="form-group">
             <label for="p-phone">Celular (WhatsApp)</label>
-            <input type="tel" id="p-phone" name="celular" placeholder="(19) 9 0000-0000" required />
+            <input type="tel" id="p-phone" name="celular" placeholder="(19) 9 0000-0000" maxlength="16" required />
           </div>
 
           <!-- E-mail -->
@@ -830,7 +830,7 @@
           <!-- Site -->
           <div class="form-group">
             <label for="p-site">Site da empresa</label>
-            <input type="url" id="p-site" name="site" placeholder="https://suaempresa.com.br" required />
+            <input type="text" id="p-site" name="site" placeholder="www.suaempresa.com.br" required />
           </div>
 
           <!-- Instagram da empresa -->
@@ -893,6 +893,17 @@
   </footer>
 
   <script>
+    const phoneInput = document.getElementById('p-phone');
+    phoneInput.addEventListener('input', function () {
+      let v = this.value.replace(/\D/g, '').slice(0, 11);
+      if (v.length <= 10) {
+        v = v.replace(/^(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+      } else {
+        v = v.replace(/^(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+      }
+      this.value = v;
+    });
+
     document.querySelectorAll('.hamburger').forEach(btn => {
       btn.addEventListener('click', () => {
         const nav = btn.closest('nav');
