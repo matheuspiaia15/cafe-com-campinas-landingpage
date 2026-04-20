@@ -2,3 +2,7 @@ name = "beehiiv-subscribe"
 main = "worker.js"
 compatibility_date = "2024-01-01"
 workers_dev = true
+
+[[routes]]
+pattern = "cafecomcampinas.com.br/subscribe"
+zone_name = "cafecomcampinas.com.br"
