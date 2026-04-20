@@ -1576,17 +1576,39 @@
     benefitItems.forEach(el => benefitsObserver.observe(el));
 
     // ── Form submission ──
-    const BEEHIIV_URL = 'https://magic.beehiiv.com/v1/8d80d2e8-a950-4a8a-93fd-3ca4a86fbe03';
+    const SUBSCRIBE_URL = 'https://beehiiv-subscribe.email-976.workers.dev';
 
     document.querySelectorAll('.signup-form').forEach(form => {
-      form.addEventListener('submit', (e) => {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const emailInput = form.querySelector('input[type="email"]');
+        const btn = form.querySelector('button[type="submit"]');
         const email = emailInput.value.trim();
         if (!email) return;
 
-        const url = BEEHIIV_URL + '?email=' + encodeURIComponent(email);
-        window.location.href = url;
+        const originalText = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = 'Inscrevendo…';
+
+        try {
+          const res = await fetch(SUBSCRIBE_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+          });
+
+          if (res.ok) {
+            window.location.href = '/obrigado.html';
+          } else {
+            throw new Error('erro ' + res.status);
+          }
+        } catch {
+          btn.disabled = false;
+          btn.textContent = originalText;
+          emailInput.setCustomValidity('Algo deu errado. Tente novamente em instantes.');
+          emailInput.reportValidity();
+          setTimeout(() => emailInput.setCustomValidity(''), 4000);
+        }
       });
     });
 
